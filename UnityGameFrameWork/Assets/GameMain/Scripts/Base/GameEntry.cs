@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class GameEntry : MonoBehaviour
+namespace PuddingCat
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 游戏入口。
+    /// </summary>
+    public partial class GameEntry : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            InitBuiltinComponents();
+            InitCustomComponents();
+        }
     }
 }
