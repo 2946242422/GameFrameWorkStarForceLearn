@@ -1,10 +1,3 @@
-//------------------------------------------------------------
-// Game Framework
-// Copyright © 2013-2021 Jiang Yin. All rights reserved.
-// Homepage: https://gameframework.cn/
-// Feedback: mailto:ellan@gameframework.cn
-//------------------------------------------------------------
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,21 +12,24 @@ namespace PuddingCat
     {
         // 定义动画的各个阶段时长
         private const float AnimationSeconds = 0.3f; // 血量变化动画的时长
-        private const float KeepSeconds = 0.4f;      // 动画结束后保持显示的时长
-        private const float FadeOutSeconds = 0.3f;   // 淡出效果的时长
+        private const float KeepSeconds = 0.4f; // 动画结束后保持显示的时长
+        private const float FadeOutSeconds = 0.3f; // 淡出效果的时长
 
         // 血条的Slider组件，用于显示血量
-        [SerializeField]
-        private Slider m_HPBar = null;
+        [SerializeField] private Slider m_HPBar = null;
 
         // 该血条UI所在的父Canvas
         private Canvas m_ParentCanvas = null;
+
         // 缓存自身的RectTransform组件，用于位置变换
         private RectTransform m_CachedTransform = null;
+
         // 缓存自身的CanvasGroup组件，用于控制整体的淡入淡出
         private CanvasGroup m_CachedCanvasGroup = null;
+
         // 该血条所属的实体（Entity），即显示谁的血条
         private Entity m_Owner = null;
+
         // 缓存实体的ID，用于判断实体是否已被回收
         private int m_OwnerId = 0;
 
@@ -42,10 +38,7 @@ namespace PuddingCat
         /// </summary>
         public Entity Owner
         {
-            get
-            {
-                return m_Owner;
-            }
+            get { return m_Owner; }
         }
 
         /// <summary>
@@ -94,7 +87,7 @@ namespace PuddingCat
             {
                 return false;
             }
-            
+
             // 确保实体仍然有效且存在
             if (m_Owner != null && Owner.Available && Owner.Id == m_OwnerId)
             {
@@ -104,8 +97,9 @@ namespace PuddingCat
 
                 Vector2 position;
                 // 将屏幕坐标转换为父Canvas下的本地坐标
-                if (RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)m_ParentCanvas.transform, screenPosition,
-                    m_ParentCanvas.worldCamera, out position))
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)m_ParentCanvas.transform,
+                        screenPosition,
+                        m_ParentCanvas.worldCamera, out position))
                 {
                     m_CachedTransform.localPosition = position; // 设置UI位置
                 }
@@ -125,7 +119,7 @@ namespace PuddingCat
             m_Owner = null; // 解除与实体的关联
             gameObject.SetActive(false); // 隐藏UI对象
         }
-        
+
         // 在对象被创建时调用
         private void Awake()
         {

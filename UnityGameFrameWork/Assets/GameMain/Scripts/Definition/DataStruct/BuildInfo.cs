@@ -1,4 +1,4 @@
-namespace PuddingCat // 注意这里的命名空间是小写开头
+namespace PuddingCat
 {
     /// <summary>
     /// 构建信息类。
@@ -19,55 +19,31 @@ namespace PuddingCat // 注意这里的命名空间是小写开头
         /// <summary>
         /// 内部游戏版本号（用于程序逻辑判断的整数，会随每次打包递增）。
         /// </summary>
-        public int InternalGameVersion
-        {
-            get;
-            set;
-        }
+        public int InternalGameVersion { get; set; }
 
         /// <summary>
         /// 检查版本更新的服务器地址。
         /// </summary>
-        public string CheckVersionUrl
-        {
-            get;
-            set;
-        }
+        public string CheckVersionUrl { get; set; }
 
         /// <summary>
         /// Windows平台整包下载地址。
         /// </summary>
-        public string WindowsAppUrl
-        {
-            get;
-            set;
-        }
+        public string WindowsAppUrl { get; set; }
 
         /// <summary>
         /// macOS平台整包下载地址。
         /// </summary>
-        public string MacOSAppUrl
-        {
-            get;
-            set;
-        }
+        public string MacOSAppUrl { get; set; }
 
         /// <summary>
         /// iOS平台整包下载地址（通常是App Store链接）。
         /// </summary>
-        public string IOSAppUrl
-        {
-            get;
-            set;
-        }
+        public string IOSAppUrl { get; set; }
 
         /// <summary>
         /// Android平台整包下载地址（.apk文件链接）。
         /// </summary>
-        public string AndroidAppUrl
-        {
-            get;
-            set;
-        }
+        public string AndroidAppUrl { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // 引入UI相关的命名空间
+using UnityEngine.UI;
 
 namespace PuddingCat
 {
@@ -12,12 +12,10 @@ namespace PuddingCat
         // [SerializeField] 使得私有字段能在Unity Inspector面板中进行赋值
 
         // 用于显示描述文本的UI Text组件，例如 "正在检查更新..."
-        [SerializeField]
-        private Text m_DescriptionText = null;
+        [SerializeField] private Text m_DescriptionText = null;
 
         // 用于显示进度的UI Slider组件（进度条）
-        [SerializeField]
-        private Slider m_ProgressSlider = null;
+        [SerializeField] private Slider m_ProgressSlider = null;
 
         // Unity的生命周期函数，当对象被激活时调用一次
         private void Start()

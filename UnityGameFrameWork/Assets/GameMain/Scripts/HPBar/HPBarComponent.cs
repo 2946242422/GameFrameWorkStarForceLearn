@@ -11,21 +11,20 @@ namespace PuddingCat
     public class HPBarComponent : GameFrameworkComponent
     {
         // 血条UI的Prefab模板
-        [SerializeField]
-        private HPBarItem m_HPBarItemTemplate = null;
+        [SerializeField] private HPBarItem m_HPBarItemTemplate = null;
 
         // 所有血条UI实例的父节点，通常是一个Canvas
-        [SerializeField]
-        private Transform m_HPBarInstanceRoot = null;
+        [SerializeField] private Transform m_HPBarInstanceRoot = null;
 
         // 对象池的容量
-        [SerializeField]
-        private int m_InstancePoolCapacity = 16;
-        
+        [SerializeField] private int m_InstancePoolCapacity = 16;
+
         // 血条项对象池
         private IObjectPool<HPBarItemObject> m_HPBarItemObjectPool = null;
+
         // 当前正在显示的血条列表
         private List<HPBarItem> m_ActiveHPBarItems = null;
+
         // 缓存父节点的Canvas组件
         private Canvas m_CachedCanvas = null;
 
@@ -40,10 +39,11 @@ namespace PuddingCat
 
             m_CachedCanvas = m_HPBarInstanceRoot.GetComponent<Canvas>();
             // 创建一个单次生成的对象池，用于管理 HPBarItemObject
-            m_HPBarItemObjectPool = GameEntry.ObjectPool.CreateSingleSpawnObjectPool<HPBarItemObject>("HPBarItem", m_InstancePoolCapacity);
+            m_HPBarItemObjectPool =
+                GameEntry.ObjectPool.CreateSingleSpawnObjectPool<HPBarItemObject>("HPBarItem", m_InstancePoolCapacity);
             m_ActiveHPBarItems = new List<HPBarItem>();
         }
-        
+
         // 组件销毁时调用（在此脚本中为空）
         private void OnDestroy()
         {
@@ -124,7 +124,7 @@ namespace PuddingCat
 
             return null;
         }
-        
+
         /// <summary>
         /// 创建一个新的血条项。
         /// </summary>
