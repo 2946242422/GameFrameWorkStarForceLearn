@@ -49,7 +49,13 @@ public class ProcedureLaunch : ProcedureBase
         // 注意：在此流程的所有初始化工作完成后，通常会切换到下一个流程
         // 例如：ChangeState<ProcedureSplash>(procedureOwner); (这部分逻辑可能在 OnUpdate 或其他地方)
     }
+    protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
+        // 运行一帧即切换到 Splash 展示流程
+        ChangeState<ProcedureSplash>(procedureOwner);
+    }
     /// <summary>
     /// 初始化语言设置。
     /// </summary>
