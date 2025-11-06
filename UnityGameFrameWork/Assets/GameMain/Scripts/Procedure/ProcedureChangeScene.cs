@@ -113,11 +113,11 @@ namespace PuddingCat
             // 加载完成后，根据目标场景类型，切换到对应的游戏逻辑流程
             if (m_ChangeToMenu)
             {
-                // ChangeState<ProcedureMenu>(procedureOwner);
+                 ChangeState<ProcedureMenu>(procedureOwner);
             }
             else
             {
-                // ChangeState<ProcedureMain>(procedureOwner); // 例如，切换到主战斗流程
+                ChangeState<ProcedureMain>(procedureOwner); // 例如，切换到主战斗流程
             }
         }
 
