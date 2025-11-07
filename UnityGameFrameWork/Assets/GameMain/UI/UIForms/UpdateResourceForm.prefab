@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DescriptionText: {fileID: 11496474}
-  m_ProgressSlider: {fileID: 11458132}
+  m_ProgressSlider: {fileID: 0}
 --- !u!1 &124694
 GameObject:
   m_ObjectHideFlags: 0
