@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EditorResourceMode: 1
-  m_EditorLanguage: 0
+  m_EditorLanguage: 8
   m_TextHelperTypeName: UnityGameFramework.Runtime.DefaultTextHelper
   m_VersionHelperTypeName: UnityGameFramework.Runtime.DefaultVersionHelper
   m_LogHelperTypeName: UnityGameFramework.Runtime.DefaultLogHelper
@@ -1555,6 +1555,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AvailableProcedureTypeNames:
   - ProcedureLaunch
+  - PuddingCat.ProcedureChangeScene
+  - PuddingCat.ProcedureMain
+  - PuddingCat.ProcedureMenu
+  - PuddingCat.ProcedurePreload
+  - PuddingCat.ProcedureSplash
   m_EntranceProcedureTypeName: ProcedureLaunch
 --- !u!114 &1575359014
 MonoBehaviour:
