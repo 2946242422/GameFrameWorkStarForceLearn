@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2025-11-03 16:06:32.499
+// 生成时间：2025-11-07 15:02:46.445
 //------------------------------------------------------------
 
 using GameFramework;
@@ -30,53 +30,92 @@ namespace PuddingCat
         /// </summary>
         public override int Id
         {
-            get { return m_Id; }
+            get
+            {
+                return m_Id;
+            }
         }
 
         /// <summary>
         /// 获取推进器编号。
         /// </summary>
-        public int ThrusterId { get; private set; }
+        public int ThrusterId
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取武器编号0。
         /// </summary>
-        public int WeaponId0 { get; private set; }
+        public int WeaponId0
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取武器编号1。
         /// </summary>
-        public int WeaponId1 { get; private set; }
+        public int WeaponId1
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取武器编号2。
         /// </summary>
-        public int WeaponId2 { get; private set; }
+        public int WeaponId2
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取装甲编号0。
         /// </summary>
-        public int ArmorId0 { get; private set; }
+        public int ArmorId0
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取装甲编号1。
         /// </summary>
-        public int ArmorId1 { get; private set; }
+        public int ArmorId1
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取装甲编号2。
         /// </summary>
-        public int ArmorId2 { get; private set; }
+        public int ArmorId2
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取死亡特效编号。
         /// </summary>
-        public int DeadEffectId { get; private set; }
+        public int DeadEffectId
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 获取死亡声音编号。
         /// </summary>
-        public int DeadSoundId { get; private set; }
+        public int DeadSoundId
+        {
+            get;
+            private set;
+        }
 
         public override bool ParseDataRow(string dataRowString, object userData)
         {
@@ -131,7 +170,10 @@ namespace PuddingCat
 
         public int WeaponIdCount
         {
-            get { return m_WeaponId.Length; }
+            get
+            {
+                return m_WeaponId.Length;
+            }
         }
 
         public int GetWeaponId(int id)
@@ -161,7 +203,10 @@ namespace PuddingCat
 
         public int ArmorIdCount
         {
-            get { return m_ArmorId.Length; }
+            get
+            {
+                return m_ArmorId.Length;
+            }
         }
 
         public int GetArmorId(int id)

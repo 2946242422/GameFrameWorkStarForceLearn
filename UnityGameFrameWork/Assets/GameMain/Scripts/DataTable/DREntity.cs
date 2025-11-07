@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2025-11-03 16:06:32.515
+// 生成时间：2025-11-07 15:02:46.466
 //------------------------------------------------------------
 
 using GameFramework;
@@ -30,13 +30,20 @@ namespace PuddingCat
         /// </summary>
         public override int Id
         {
-            get { return m_Id; }
+            get
+            {
+                return m_Id;
+            }
         }
 
         /// <summary>
         /// 获取资源名称。
         /// </summary>
-        public string AssetName { get; private set; }
+        public string AssetName
+        {
+            get;
+            private set;
+        }
 
         public override bool ParseDataRow(string dataRowString, object userData)
         {
@@ -73,6 +80,7 @@ namespace PuddingCat
 
         private void GeneratePropertyArray()
         {
+
         }
     }
 }
