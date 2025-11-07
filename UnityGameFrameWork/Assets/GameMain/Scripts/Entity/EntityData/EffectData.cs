@@ -1,10 +1,3 @@
-//------------------------------------------------------------
-// Game Framework
-// Copyright © 2013-2021 Jiang Yin. All rights reserved.
-// Homepage: https://gameframework.cn/
-// Feedback: mailto:ellan@gameframework.cn
-//------------------------------------------------------------
-
 using System;
 using UnityEngine;
 
@@ -14,14 +7,21 @@ namespace PuddingCat
     public class EffectData : EntityData
     {
         [SerializeField]
-        private float m_KeepTime = 0f;
+        private float m_KeepTime = 0f; // 特效的持续时间（秒）
 
+        /// <summary>
+        /// 特效数据的构造函数。
+        /// </summary>
         public EffectData(int entityId, int typeId)
             : base(entityId, typeId)
         {
+            // 可以在这里从数据表读取持续时间，或者像这样硬编码一个默认值
             m_KeepTime = 3f;
         }
 
+        /// <summary>
+        /// 获取特效持续时间。
+        /// </summary>
         public float KeepTime
         {
             get
