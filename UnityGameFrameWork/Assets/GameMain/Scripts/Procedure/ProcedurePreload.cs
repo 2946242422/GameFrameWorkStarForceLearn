@@ -129,6 +129,8 @@ namespace PuddingCat
         private void LoadDictionary(string dictionaryName)
         {
             string dictionaryAssetName = AssetUtility.GetDictionaryAsset(dictionaryName, false);
+            Debug.Log($"Attempting to load dictionary from path: {dictionaryAssetName}");
+
             m_LoadedFlag.Add(dictionaryAssetName, false);
             GameEntry.Localization.ReadData(dictionaryAssetName, this);
         }
