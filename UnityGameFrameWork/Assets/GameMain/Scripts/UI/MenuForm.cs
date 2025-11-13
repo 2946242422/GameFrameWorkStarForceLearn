@@ -20,6 +20,7 @@ namespace PuddingCat
         public void OnStartButtonClick()
         {
             // 通过持有的引用，通知主菜单流程：“我要开始游戏了！”
+            Log.Info("StartGame");
             m_ProcedureMenu.StartGame();
         }
 
