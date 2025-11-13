@@ -59,7 +59,7 @@ namespace PuddingCat
                 // 3. 可更新模式（需要联网检查版本和下载更新资源）
                 Log.Info("Updatable resource mode detected.");
                 // 切换到检查版本号的流程，开始热更新的第一步
-                // ChangeState<ProcedureCheckVersion>(procedureOwner);
+                 ChangeState<ProcedureCheckVersion>(procedureOwner);
             }
         }
     }
