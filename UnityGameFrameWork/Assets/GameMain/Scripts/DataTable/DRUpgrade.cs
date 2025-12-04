@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2025-12-04 16:33:26.104
+// 生成时间：2025-12-04 16:33:26.129
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace PuddingCat
 {
     /// <summary>
-    /// 小行星表。
+    /// 鍗囩骇閰嶇疆。
     /// </summary>
-    public class DRAsteroid : DataRowBase
+    public class DRUpgrade : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取小行星编号。
+        /// 获取鍗囩骇ID。
         /// </summary>
         public override int Id
         {
@@ -37,54 +37,54 @@ namespace PuddingCat
         }
 
         /// <summary>
-        /// 获取最大生命。
+        /// 获取鍗囩骇鍚嶇О。
         /// </summary>
-        public int MaxHP
+        public string Name
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取冲击力。
+        /// 获取鎻忚堪。
         /// </summary>
-        public int Attack
+        public string Description
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取速度。
+        /// 获取鍗囩骇鎻忚堪。
         /// </summary>
-        public float Speed
+        public int Rarity
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取角速度。
+        /// 获取绋鏈夊害。
         /// </summary>
-        public float AngularSpeed
+        public string TypeS
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取死亡特效编号。
+        /// 获取鍙傛暟1。
         /// </summary>
-        public int DeadEffectId
+        public string Param1
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取死亡声音编号。
+        /// 获取鍙傛暟1。
         /// </summary>
-        public int DeadSoundId
+        public string Param2
         {
             get;
             private set;
@@ -101,13 +101,12 @@ namespace PuddingCat
             int index = 0;
             index++;
             m_Id = int.Parse(columnStrings[index++]);
-            index++;
-            MaxHP = int.Parse(columnStrings[index++]);
-            Attack = int.Parse(columnStrings[index++]);
-            Speed = float.Parse(columnStrings[index++]);
-            AngularSpeed = float.Parse(columnStrings[index++]);
-            DeadEffectId = int.Parse(columnStrings[index++]);
-            DeadSoundId = int.Parse(columnStrings[index++]);
+            Name = columnStrings[index++];
+            Description = columnStrings[index++];
+            Rarity = int.Parse(columnStrings[index++]);
+            TypeS = columnStrings[index++];
+            Param1 = columnStrings[index++];
+            Param2 = columnStrings[index++];
 
             GeneratePropertyArray();
             return true;
@@ -120,12 +119,12 @@ namespace PuddingCat
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    MaxHP = binaryReader.Read7BitEncodedInt32();
-                    Attack = binaryReader.Read7BitEncodedInt32();
-                    Speed = binaryReader.ReadSingle();
-                    AngularSpeed = binaryReader.ReadSingle();
-                    DeadEffectId = binaryReader.Read7BitEncodedInt32();
-                    DeadSoundId = binaryReader.Read7BitEncodedInt32();
+                    Name = binaryReader.ReadString();
+                    Description = binaryReader.ReadString();
+                    Rarity = binaryReader.Read7BitEncodedInt32();
+                    TypeS = binaryReader.ReadString();
+                    Param1 = binaryReader.ReadString();
+                    Param2 = binaryReader.ReadString();
                 }
             }
 
@@ -133,9 +132,46 @@ namespace PuddingCat
             return true;
         }
 
+        private KeyValuePair<int, string>[] m_Param = null;
+
+        public int ParamCount
+        {
+            get
+            {
+                return m_Param.Length;
+            }
+        }
+
+        public string GetParam(int id)
+        {
+            foreach (KeyValuePair<int, string> i in m_Param)
+            {
+                if (i.Key == id)
+                {
+                    return i.Value;
+                }
+            }
+
+            throw new GameFrameworkException(Utility.Text.Format("GetParam with invalid id '{0}'.", id));
+        }
+
+        public string GetParamAt(int index)
+        {
+            if (index < 0 || index >= m_Param.Length)
+            {
+                throw new GameFrameworkException(Utility.Text.Format("GetParamAt with invalid index '{0}'.", index));
+            }
+
+            return m_Param[index].Value;
+        }
+
         private void GeneratePropertyArray()
         {
-
+            m_Param = new KeyValuePair<int, string>[]
+            {
+                new KeyValuePair<int, string>(1, Param1),
+                new KeyValuePair<int, string>(2, Param2),
+            };
         }
     }
 }

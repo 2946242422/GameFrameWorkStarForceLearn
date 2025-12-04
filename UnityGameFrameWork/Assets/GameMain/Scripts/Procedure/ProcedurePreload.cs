@@ -18,7 +18,7 @@ namespace PuddingCat
         public static readonly string[] DataTableNames = new string[]
         {
             "Aircraft", "Armor", "Asteroid", "Entity", "Music", "Scene", "Sound",
-            "Thruster", "UIForm", "UISound", "Weapon", "TestConfig",
+            "Thruster", "UIForm", "UISound", "Weapon", "TestConfig","Upgrade"
         };
 
         // 一个字典，用作加载任务的“清单”。Key是资源名，Value是是否加载完成的标志。

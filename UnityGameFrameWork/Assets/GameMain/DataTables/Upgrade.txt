@@ -1,0 +1,10 @@
+#	升级配置						
+#	ID	Name	Description	Rarity	TypeS	Param1	Param2
+#	int	string	string	int	string	string	string
+#	升级ID	升级名称	描述	升级描述	稀有度	参数1	参数1
+	1001	火力强化 I	所有武器攻击力+5	10	WEAPON_ATTACK_ADD	5	
+	1002	射速提升 I	所有武器攻击间隔-10%	10	WEAPON_INTERVAL_MUL	0.9	
+	1003	额外枪管	为飞机增加一个额外的武器槽位	5	AIRCRAFT_ADD_WEAPON	40002	
+	1004	散射	所有武器额外向两侧发射子弹	3	WEAPON_ADD_SCATTER		
+	1004	吸血子弹	子弹命中时，有10%概率恢复1点HP	1	BULLET_LIFESTEAL	0.1	1
+	1006	舰体改造"	最大生命值+50	10	ARMOR_HP_ADD	50	
