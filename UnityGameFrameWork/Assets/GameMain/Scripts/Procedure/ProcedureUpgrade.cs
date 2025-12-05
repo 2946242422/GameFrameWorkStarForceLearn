@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using GameFramework.DataTable;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 namespace PuddingCat
 {
@@ -9,6 +11,7 @@ namespace PuddingCat
     {
         private IDataTable<DRUpgrade> m_UpgradeTable;
         private List<DRUpgrade> m_UpgradeChoices;
+        private ProcedureOwner m_ProcedureOwner;
         public override bool UseNativeDialog { get; }
         
        
@@ -17,6 +20,7 @@ namespace PuddingCat
             base.OnInit(procedureOwner);
             // 预先获取数据表，避免每次都获取
             m_UpgradeTable = GameEntry.DataTable.GetDataTable<DRUpgrade>();
+            m_ProcedureOwner = procedureOwner;
         }
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
@@ -47,7 +51,7 @@ namespace PuddingCat
             
             // 6. 恢复游戏并回到主游戏流程
             GameEntry.Base.ResumeGame();
-            ChangeState<ProcedureMain>(procedureOwner);
+            ChangeState<ProcedureMain>(m_ProcedureOwner);
         }
         
         /// <summary>
@@ -83,16 +87,7 @@ namespace PuddingCat
         private void ApplyUpgrade(DRUpgrade upgrade)
         {
             // TODO: 这是我们下一步要实现的核心逻辑
-            Log.Info("Player selected upgrade: '{0}', Type='{1}', Param1='{2}'", upgrade.Name, upgrade.Type, upgrade.Param1);
-
-            // 获取玩家飞机的数据对象
-            var myAircraft = (MyAircraft)GameEntry.Entity.GetGameEntity(10000); // 假设玩家ID是10000
-            if (myAircraft == null) return;
-
-            MyAircraftData aircraftData = myAircraft.GetData<MyAircraftData>();
-            
-            // 将获得的升级记录下来
-            aircraftData.AcquiredUpgrades.Add(upgrade);
+          
         }
     }
 

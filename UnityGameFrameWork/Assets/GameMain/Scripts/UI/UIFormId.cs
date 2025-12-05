@@ -26,5 +26,9 @@ namespace PuddingCat
         /// 关于。
         /// </summary>
         AboutForm = 102,
+        /// <summary>
+        /// 升级选择界面。
+        /// </summary>
+        UpgradeForm = 103, // 新增
     }
 }
